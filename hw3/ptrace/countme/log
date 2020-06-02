@@ -1,0 +1,12 @@
+omework/hw3/ptrace/countme on  master [!?] took 5s 
+➜ sudo perf stat -e instructions:u ./countme 
+
+ Performance counter stats for './countme':
+
+           493,034      instructions:u                                              
+
+       0.001120722 seconds time elapsed
+
+       0.001197000 seconds user
+       0.000000000 seconds sys
+

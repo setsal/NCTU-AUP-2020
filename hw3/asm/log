@@ -1,0 +1,563 @@
+ took 30s 
+➜ nc aup.zoolab.org 2500
+addsub1:
+	eax = 0xe47a9b5d
+	eax = eax + 0xe78574e8 
+	eax = eax - 0xd2efba5b
+======
+======
+Enter your codes: (type 'done:' when done)
+mov eax, 0xe47a9b5d
+add eax, 0xe78574e8
+sub eax, 0xd2efba5b
+done:
+======
+eax = 0xf91055ea (== 0xf91055ea)
+*** correct
+*** FLAG: ASM{12d30a57b6fd8c9779eb4d64428fb064653a7e00}
+======
+RAX: 0xf91055ea    RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+~ took 30s 
+➜ nc aup.zoolab.org 2501
+addsub2:
+	final = val1 + val2 - val3
+======
+      val1 @ 0x600000-600004
+      val2 @ 0x600004-600008
+      val3 @ 0x600008-60000c
+     final @ 0x60000c-600010
+======
+Enter your codes: (type 'done:' when done)
+mov     eax, [0x600000]
+add     eax, [0x600004]
+sub     eax, [0x600008]
+mov     [0x60000c], eax
+done:
+======
+final = 0xa3433fb4 (== 0xa3433fb4)
+*** correct
+*** FLAG: ASM{9f4b9cc948960da32302135229f622472f7d8713}
+======
+RAX: 0xa3433fb4    RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+~ took 24s 
+➜ nc aup.zoolab.org 2502
+bubble: bubble sort for 10 integers
+======
+      a[0] @ 0x600000-600004
+      a[1] @ 0x600004-600008
+      a[2] @ 0x600008-60000c
+      a[3] @ 0x60000c-600010
+      a[4] @ 0x600010-600014
+      a[5] @ 0x600014-600018
+      a[6] @ 0x600018-60001c
+      a[7] @ 0x60001c-600020
+      a[8] @ 0x600020-600024
+      a[9] @ 0x600024-600028
+======
+Enter your codes: (type 'done:' when done)
+^C
+
+~ took 5s 
+➜ nc aup.zoolab.org 2519
+swapmem: swap the values in val1 and val2
+======
+      val1 @ 0x600000-600008
+      val2 @ 0x600008-600010
+======
+Enter your codes: (type 'done:' when done)
+mov rax, [0x600000]
+mov rbx, [0x600008]
+mov [0x600000], rbx
+mov [0x600008], rax
+done:
+======
+val1 = 0xea8c1117 (== 0xea8c1117)
+val2 = 0x5d861e00 (== 0x5d861e00)
+*** correct
+*** FLAG: ASM{bfc6b67fad445d161d540cfd75a5f57bbabb31ea}
+======
+RAX: 0x5d861e00    RBX: 0xea8c1117    RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+~ took 10s 
+➜ nc aup.zoolab.org 2520
+swapreg: swap the values in RAX and RBX
+======
+======
+Enter your codes: (type 'done:' when done)
+xchg rax, rbx
+done:
+======
+rax = 0x13a29f91 (== 0x13a29f91)
+rbx = 0x827eeb4b (== 0x827eeb4b)
+*** correct
+*** FLAG: ASM{534a511af0ecbeb0f7f367a81d416d27749c2642}
+======
+RAX: 0x13a29f91    RBX: 0x827eeb4b    RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+~ took 5s 
+➜ nc aup.zoolab.org 2521
+tolower: convert the single character in val1 to uppercase and store in val2
+======
+      val1 @ 0x600000-600001
+      val2 @ 0x600001-600002
+======
+Enter your codes: (type 'done:' when done)
+mov ax, [0x600000]
+sub ax, 0x20
+mov [0x600001], ax
+done:
+======
+val1 = 0x6d (== 0x6d)
+val2 = 0x4d (== 0x4d)
+*** correct
+*** FLAG: ASM{a2ae0dfc6e3d5f1a32bdc8bc9a12382a2c8fbb8b}
+======
+RAX: 0x4d          RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+~ took 10s 
+➜ nc aup.zoolab.org 2503
+clear17: clear bit-17 in eax (zero-based index)
+======
+======
+Enter your codes: (type 'done:' when done)
+and eax, 0xfffdffff
+done:
+======
+eax = 0xe05c0e2f (== 0xe05c0e2f)
+*** correct
+*** FLAG: ASM{495071da9e7398c46f7b924f4038a597d3952314}
+======
+RAX: 0xe05c0e2f    RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+~ took 7s 
+➜ nc aup.zoolab.org 2502
+bubble: bubble sort for 10 integers
+======
+      a[0] @ 0x600000-600004
+      a[1] @ 0x600004-600008
+      a[2] @ 0x600008-60000c
+      a[3] @ 0x60000c-600010
+      a[4] @ 0x600010-600014
+      a[5] @ 0x600014-600018
+      a[6] @ 0x600018-60001c
+      a[7] @ 0x60001c-600020
+      a[8] @ 0x600020-600024
+      a[9] @ 0x600024-600028
+======
+Enter your codes: (type 'done:' when done)
+^C
+
+mov   eax , Xval
+neg   eax                                 ; -26
+mov   ebx , Yval
+sub   ebx ,  Zval                      ; -10
+add   eax ,  ebx
+mov   Rval , eax                      ; -36
+
+
+.data
+      Xval   SDWORD   [0x600000]
+      Yval   SDWORD   [0x600004]
+      Zval   SDWORD   [0x600008]
+      Rval   SDWORD   [0x60000c]
+
+.code     
+mov eax, [0x600000]
+neg eax
+mov ebx, [0x600004]
+sub ebx, [0x600008]
+add eax, ebx
+mov [0x60000c], eax
+
+➜ nc aup.zoolab.org 2506
+eval1:
+        Rval = -Xval + (Yval – Zval)
+======
+      Xval @ 0x600000-600004
+      Yval @ 0x600004-600008
+      Zval @ 0x600008-60000c
+      Rval @ 0x60000c-600010
+======
+Enter your codes: (type 'done:' when done)
+mov eax, [0x600000]
+neg eax
+mov ebx, [0x600004]
+sub ebx, [0x600008]
+add eax, ebx
+mov [0x60000c], eax
+done:
+======
+Rval = 0x40d1dfed (== 0x40d1dfed)
+*** correct
+*** FLAG: ASM{e683b6b39c904540bf724e1e8a8e9ef030f01e29}
+======
+RAX: 0x40d1dfed    RBX: 0x9c0a49d9    RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+====
+
+~ took 12s 
+➜ nc aup.zoolab.org 2504
+dec2ascii: convert the value (0-9) in AL to its ASCII character
+======
+======
+Enter your codes: (type 'done:' when done)
+add rax, 0x30
+done:
+======
+al = 0x35 (== 0x35)
+*** correct
+*** FLAG: ASM{067d91cabbe48ae0d378b9f06e09a3f5dd19f192}
+======
+RAX: 0x35          RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+====
+
+➜ nc aup.zoolab.org 2510
+math1: unsigned arithmetic
+        var4 = (var1 + var2) * var3
+======
+      var1 @ 0x600000-600004
+      var2 @ 0x600004-600008
+      var3 @ 0x600008-60000c
+      var4 @ 0x60000c-600010
+======
+Enter your codes: (type 'done:' when done)
+mov eax,[0x600000]
+add eax,[0x600004]
+mov ecx, [0x600008]
+mul ecx
+mov [0x60000c], eax
+done:
+======
+var1 = 0x18f2107c (== 0x18f2107c)
+var2 = 0x1e67c9e1 (== 0x1e67c9e1)
+var3 = 0x298eb653 (== 0x298eb653)
+var4 = 0xd7f5ea27 (== 0xd7f5ea27)
+*** correct
+*** FLAG: ASM{329d6b2d2b60dbe275c2fadfab47326ec7ce8032}
+======
+RAX: 0xd7f5ea27    RBX: 0x0           RCX: 0x298eb653    RDX: 0x8fc3f3b     
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000     
+
+
+===
+
+➜ nc aup.zoolab.org 2511
+math2: signed arithmetic
+        eax = (-var1 * var2) + var3
+======
+      var1 @ 0x600000-600004
+      var2 @ 0x600004-600008
+      var3 @ 0x600008-60000c
+======
+Enter your codes: (type 'done:' when done)
+mov eax,[0x600000]
+neg eax
+mov ecx, [0x600004]
+mul ecx
+add eax, [0x600008]
+done:
+======
+var1 = 0x41e58072 (== 0x41e58072)
+var2 = 0x49c90411 (== 0x49c90411)
+var3 = 0x596cb4f6 (== 0x596cb4f6)
+eax = 0x7ab6564 (== 0x7ab6564)
+*** correct
+*** FLAG: ASM{a12829814c0c3681044eaf4fee319c66994e2fda}
+======
+RAX: 0x7ab6564     RBX: 0x0           RCX: 0x49c90411    RDX: 0x36cad432    
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000    
+
+===
+
+➜ nc aup.zoolab.org 2512
+math3: 32-bit unsigned arithmetic
+        var4 = (var1 * 5) / (var2 - 3)
+        note: overflowed part should be truncated
+======
+      var1 @ 0x600000-600004
+      var2 @ 0x600004-600008
+      var4 @ 0x600008-60000c
+======
+Enter your codes: (type 'done:' when done)
+25
+======
+var1 = 0x1de1fa54 (== 0x1de1fa54)
+var2 = 0x568e70ff (== 0x568e70ff)
+var4 = 0x1 (== 0x1)
+*** correct
+*** FLAG: ASM{29fefc836582fc2520b7c1943a4f222d13c867bd}
+======
+RAX: 0x1           RBX: 0x568e70fc    RCX: 0x0           RDX: 0x3edb72a8    
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+???
+非逾期解?
+➜ nc aup.zoolab.org 2512
+math3: 32-bit unsigned arithmetic
+        var4 = (var1 * 5) / (var2 - 3)
+        note: overflowed part should be truncated
+======
+      var1 @ 0x600000-600004
+      var2 @ 0x600004-600008
+      var4 @ 0x600008-60000c
+======
+Enter your codes: (type 'done:' when done)
+mov eax,[0x600004]
+neg eax
+cdq
+mov edx, [0x600008]
+done:
+======
+var1 = 0x6b8b16ce (== 0x6b8b16ce)
+var2 = 0x2228ccb7 (== 0x2228ccb7)
+var4 = 0x0 (== 0x0)
+*** correct
+*** FLAG: ASM{29fefc836582fc2520b7c1943a4f222d13c867bd}
+======
+RAX: 0xddd73349    RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+???
+
+===?
+
+➜ nc aup.zoolab.org 2515
+minicall: implement a minimal function call in the emulator
+===== THE CODE
+    call   a
+    jmp    exit
+
+a:  ; function a - read ret-addr in rax
+    pop    rax
+    push   rax
+    ret
+exit:
+======
+======
+Enter your codes: (type 'done:' when done)
+    call   a
+    jmp    exit
+
+a:  ; function a - read ret-addr in rax
+    pop    rax
+    push   rax
+    ret
+exit:
+done:
+======
+eax = 0x400005 (== 0x400005)
+*** correct
+*** FLAG: ASM{6a409552c7451c41c5e961cc5a9af9ced510ce98}
+======
+RAX: 0x400005      RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+
+===
+
+➜ nc aup.zoolab.org 2507
+isolatebit:
+        get the value bit-11 ~ bit-5 in AX and store the result in val1
+        (zero-based bit index)
+======
+      val1 @ 0x600000-600001
+      val2 @ 0x600001-600002
+======
+Enter your codes: (type 'done:' when done)
+mov cx, ax
+mov ebx, [0x600001]
+and cx, 0xFE0
+shr cx, 5 
+mov [0x600000], cx
+mov [0x600001], ebx
+done:
+======
+val1 = 0x1c (== 0x1c)
+val2 = 0x92 (== 0x92)
+*** correct
+*** FLAG: ASM{c68c96817b844512055b5aa636fc71eba803a77c}
+======
+RAX: 0xc388        RBX: 0x92          RCX: 0x1c          RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+➜ nc aup.zoolab.org 2508
+
+leax:
+        eax = edi * 2
+        ebx = edi * 3
+        ecx = edi * 5
+        edx = edi * 9
+======
+======
+Enter your codes: (type 'done:' when done)
+lea eax, [edi*2]
+lea ebx, [edi+edi*2]
+lea ecx, [edi+edi*4]
+lea edx, [edi+edi*8]
+done:
+======
+eax = 0x91576d16 (== 0x91576d16)
+ebx = 0x5a0323a1 (== 0x5a0323a1)
+ecx = 0xeb5a90b7 (== 0xeb5a90b7)
+edx = 0xe096ae3 (== 0xe096ae3)
+*** correct
+*** FLAG: ASM{4dcff917b5e26def74682294894946603a1e6b6b}
+======
+RAX: 0x91576d16    RBX: 0x5a0323a1    RCX: 0xeb5a90b7    RDX: 0xe096ae3     
+RDI: 0xc8abb68b    RSI: 0x0           RBP: 0x0           RSP: 0xa00000   
+
+
+~ took 3s 
+➜ nc aup.zoolab.org 2516
+mulbyshift: multiply val1 by 26 and store the result in val2
+======
+      val1 @ 0x600000-600004
+      val2 @ 0x600004-600008
+======
+Enter your codes: (type 'done:' when done)
+mov eax, [0x600000]
+shl eax, 1
+mov ebx, eax
+shl eax, 1
+mov ecx, eax
+shl eax, 3
+mov [0x600004], eax
+sub [0x600004], ecx
+sub [0x600004], ebx
+done:
+======
+val1 = 0x1a23 (== 0x1a23)
+val2 = 0x2a78e (== 0x2a78e)
+*** correct
+*** FLAG: ASM{34b9caa05654006ec6a14db1a60ea145b2689b20}
+======
+RAX: 0x34460       RBX: 0x3446        RCX: 0x688c        RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000  
+
+
+
+ul+lu: convert the alphabet in CH from upper to lower or from lower to upper
+======
+======
+Enter your codes: (type 'done:' when done)
+xor ch, 0x20
+done:
+======
+ch = 0x58 (== 0x58)
+*** correct
+*** FLAG: ASM{8c9f0650d45e9a8cf1a0c6696f486025e30005ad}
+======
+RAX: 0x0           RBX: 0x0           RCX: 0x5800        RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000  
+
+
+===
+mov eax,[0x600004]
+neg eax
+cdq eax 
+mov edx, [0x600008]
+idiv edx
+
+mov eax, -5
+mov edx, [0x600000]
+imul edx
+idiv ebx
+mov [0x60000c], eax
+
+➜ nc aup.zoolab.org 2513
+math4: 32-bit signed arithmetic
+        var4 = (var1 * -5) / (-var2 % var3)
+        note: overflowed part should be truncated
+======
+      var1 @ 0x600000-600004
+      var2 @ 0x600004-600008
+      var3 @ 0x600008-60000c
+      var4 @ 0x60000c-600010
+======
+Enter your codes: (type 'done:' when done)
+mov eax,[0x600004]
+neg eax
+done:
+======
+var1 = 0x6757c32c (== 0x6757c32c)
+var2 = 0x4922c51e (== 0x4922c51e)
+var3 = 0x4b0a9d88 (== 0x4b0a9d88)
+var4 = 0x0 (== 0x0)
+*** correct
+*** FLAG: ASM{5df848046cc0a617a07df92cc063abe6eb9fab33}
+======
+RAX: 0xb6dd3ae2    RBX: 0x0           RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000     
+
+奇怪解  留備案
+
+=== 
+mov eax, 0
+mov [0x600008], eax
+
+
+➜ nc aup.zoolab.org 2514
+math5: 32-bit signed arithmetic
+        var3 = (var1 * -var2) / (var3 - ebx)
+        note: overflowed part should be truncated
+======
+      var1 @ 0x600000-600004
+      var2 @ 0x600004-600008
+      var3 @ 0x600008-60000c
+======
+Enter your codes: (type 'done:' when done)
+mov eax, 0
+mov [0x600008], eax
+done:
+======
+var1 = 0x5a439db1 (== 0x5a439db1)
+var2 = 0x1e6d501f (== 0x1e6d501f)
+var3 = 0x0 (== 0x0)
+*** correct
+*** FLAG: ASM{d094846539de42b83a8c47494e8ad906f4642340}
+======
+RAX: 0x0           RBX: 0x5539ec54    RCX: 0x0           RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+奇怪解  留備案
+===
+
+
+=================
+
+➜ nc aup.zoolab.org 2507
+isolatebit:
+        get the value bit-11 ~ bit-5 in AX and store the result in val1
+        (zero-based bit index)
+======
+      val1 @ 0x600000-600001
+      val2 @ 0x600001-600002
+======
+Enter your codes: (type 'done:' when done)
+mov cx, ax
+mov ebx, [0x600001]
+and cx, 0xFE0
+shr cx, 5 
+mov [0x600000], cx
+mov [0x600001], ebx
+done:
+======
+val1 = 0x1c (== 0x1c)
+val2 = 0x92 (== 0x92)
+*** correct
+*** FLAG: ASM{c68c96817b844512055b5aa636fc71eba803a77c}
+======
+RAX: 0xc388        RBX: 0x92          RCX: 0x1c          RDX: 0x0           
+RDI: 0x0           RSI: 0x0           RBP: 0x0           RSP: 0xa00000      
+
+===

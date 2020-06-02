@@ -1,4 +1,6 @@
 .DS_Store
+peda*
+.gdb_history
 node_modules/
 __pycache__/
 dist/
@@ -20,3 +22,8 @@ output/
 
 # hw1
 hw1/hw1
+
+# hw2
+hw2/sandbox
+hw2/sandbox.so
+hw2/sample
