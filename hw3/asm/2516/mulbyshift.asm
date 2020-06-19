@@ -14,4 +14,3 @@ shl eax, 3
 mov [0x600004], eax
 sub [0x600004], ecx
 sub [0x600004], ebx
-done:

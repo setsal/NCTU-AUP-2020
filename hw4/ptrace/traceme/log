@@ -1,0 +1,55 @@
+觀察 asm 的 code 配合 gdb 調適會一直去 call f 的 function 做字串處理
+
+然後會將值存放在 rax 裡面
+
+所以我們可以直接透過 gdb 設段點後單步執行後 即可配合 peda 看到結果
+
+```
+b *0x555555554897
+n .....
+```
+
+
+## log
+──────────────────────────────────────────────────────────────────────────────────────── Registers ──────────────────────────────────────────────────────────────────────────────────────────
+RAX: 0x555555755b80 ("ASM{a_Pr0ce55_can_b_trac3d_0n1Y_0nc3}")
+RBX: 0x0 
+RCX: 0x7d ('}')
+RDX: 0x24 ('$')
+RSI: 0x5555557562a0 --> 0xa646563617274 ('traced\n')
+RDI: 0x0 
+RBP: 0x7fffffffdb10 --> 0x5555555548e0 (<__libc_csu_init>:      push   r15)
+RSP: 0x7fffffffdaa0 --> 0x7fffffffdbf8 --> 0x7fffffffdf9a ("/home/setsal/nctu/aup/homework/hw3/ptrace/traceme/traceme2")
+RIP: 0x5555555548ab (<main+135>:        mov    eax,DWORD PTR [rbp-0x54])
+R8 : 0x7 
+R9 : 0x40 ('@')
+R10: 0x410 
+R11: 0x246 
+R12: 0x555555554680 (<_start>:  xor    ebp,ebp)
+R13: 0x7fffffffdbf0 --> 0x1 
+R14: 0x0 
+R15: 0x0
+EFLAGS: 0x202 (carry parity adjust zero sign trap INTERRUPT direction overflow)
+──────────────────────────────────────────────────────────────────────────────────────────── Code ────────────────────────────────────────────────────────────────────────────────────────────
+   0x5555555548a1 <main+125>:   add    DWORD PTR [rbp-0x54],0x1
+   0x5555555548a5 <main+129>:   cmp    DWORD PTR [rbp-0x54],0x24
+   0x5555555548a9 <main+133>:   jle    0x555555554872 <main+78>
+=> 0x5555555548ab <main+135>:   mov    eax,DWORD PTR [rbp-0x54]
+   0x5555555548ae <main+138>:   movsxd rdx,eax
+   0x5555555548b1 <main+141>:   lea    rax,[rip+0x2012c8]        # 0x555555755b80 <output>
+   0x5555555548b8 <main+148>:   mov    BYTE PTR [rdx+rax*1],0x0
+   0x5555555548bc <main+152>:   mov    eax,0x0
+[rbp-0x54] : 0x7fffffffdabc --> 0xffffdc0800000025 
+─────────────────────────────────────────────────────────────────────────────────────────── Stack ────────────────────────────────────────────────────────────────────────────────────────────
+0000| 0x7fffffffdaa0 --> 0x7fffffffdbf8 --> 0x7fffffffdf9a ("/home/setsal/nctu/aup/homework/hw3/ptrace/traceme/traceme2")
+0008| 0x7fffffffdaa8 --> 0x1f7faa000 
+0016| 0x7fffffffdab0 --> 0x1 
+0024| 0x7fffffffdab8 --> 0x25ffffdbf8 
+0032| 0x7fffffffdac0 --> 0x7fffffffdc08 --> 0x7fffffffdfd5 ("CLUTTER_IM_MODULE=ibus")
+0040| 0x7fffffffdac8 --> 0x7fffffffdb30 --> 0x1f7f6ea48 
+0048| 0x7fffffffdad0 --> 0x1 
+0056| 0x7fffffffdad8 --> 0x55555555492d (<__libc_csu_init+77>:  add    rbx,0x1)
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Legend: code, data, rodata, heap, value
+47      in traceme.c
+gdb-peda$ 

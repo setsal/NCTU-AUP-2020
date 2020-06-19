@@ -13,9 +13,10 @@
 
     call   l1
     jmp    exit
+
 l1:
     pop    rax
     push   rax
     ret
+
 exit:
-done:

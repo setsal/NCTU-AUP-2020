@@ -23,4 +23,3 @@ mov [ebx], dl
 inc eax
 inc ebx
 loop l1
-done:

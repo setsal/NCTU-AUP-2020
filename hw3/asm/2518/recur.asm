@@ -9,10 +9,10 @@
 ; ======
 	
 	push 24
-	call loop
+	call l1
 	jmp not
 
-loop:
+l1:
 	mov rax, [rsp + 8]
 	cmp rax, 0
 	jle fin
@@ -21,7 +21,7 @@ loop:
 	
 	sub rax, 1
 	push rax
-	call loop
+	call l1
 	mov rcx, 2
 	mul rcx
 	mov [rsp], rax				
@@ -29,7 +29,7 @@ loop:
 	mov rax, [rsp + 0x10]
 	sub rax, 2
 	push rax			
-	call loop
+	call l1
 	add rsp, 8
 	mov rcx, 3
 	mul rcx

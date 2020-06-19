@@ -10,12 +10,12 @@ mov ecx, 16
 lea edx, [0x600000]
 
 l1:
-shl ax, 1
-mov ebx, 48
-jnc shift 
-mov ebx, 49
+    shl ax, 1
+    mov ebx, 48
+    jnc shift 
+    mov ebx, 49
 
 shift:
-or [edx], bl
-inc edx
-loop l1
+    or [edx], bl
+    inc edx
+    loop l1

@@ -39,5 +39,3 @@ l3:
 
 l4:
 	mov [0x60000c], eax
-
-done:

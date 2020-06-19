@@ -26,5 +26,3 @@ mov eax, ecx
 cdq
 idiv ebx
 mov [0x60000c], eax
-
-done:

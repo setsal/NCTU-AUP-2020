@@ -10,3 +10,7 @@ omework/hw3/ptrace/countme on  master [!?] took 5s
        0.001197000 seconds user
        0.000000000 seconds sys
 
+
+答案是 493,034
+
+透過 perf stat 幫忙計算
